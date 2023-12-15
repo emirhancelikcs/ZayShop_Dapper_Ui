@@ -1,0 +1,85 @@
+﻿@model List<ResultCategoryDto>
+
+@{
+	ViewData["Title"] = "Category";
+	Layout = "_AdminLayout";
+}
+
+<link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Category</h1>
+<p class="mb-4">Shows Category Table</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+	@* <div class="card-header py-3">
+	<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+	</div> *@
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Category Name</th>
+						<th>Category Status</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>#</th>
+						<th>Category Name</th>
+						<th>Category Status</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>@item.CategoryId</td>
+							<td>@item.CategoryName</td>
+							@if (item.CategoryStatus)
+							{
+								<td>Active</td>
+							}
+							else
+							{
+								<td>Deactive</td>
+							}
+							<td>
+								<a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-success">Update</a>
+							</td>
+							<td>
+								<a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Delete</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+
+			</table>
+			<a asp-controller="Category" asp-action="CreateCategory" class="btn btn-warning">Create New Category</a>
+		</div>
+	</div>
+</div>
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="~/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="~/js/demo/datatables-demo.js"></script>

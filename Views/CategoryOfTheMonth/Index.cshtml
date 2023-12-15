@@ -1,0 +1,71 @@
+﻿@model List<ResultCategoryOfTheMonthDto>
+
+@{
+	Layout = "_AdminLayout";
+	ViewData["Title"] = "Category Of The Month";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">@ViewData["Title"]</h1>
+<p class="mb-4">Shows Category Of The Month Table</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+	@* <div class="card-header py-3">
+	<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+	</div> *@
+	@if (Model.Count <= 0)
+	{
+		<div class="card-body text-danger fs-2">Boş!</div>
+	} else
+	{
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Header</th>
+							<th>Title</th>
+							<th>Update</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>#</th>
+							<th>Header</th>
+							<th>Title</th>
+							<th>Update</th>
+							<th>Delete</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td>@item.CategoryOfTheMonthId</td>
+								<td>@item.CategoryOfTheMonthHeader</td>
+								<td>@item.CategoryOfTheMonthTitle</td>
+								<td>
+									<a href="/CategoryOfTheMonth/UpdateCategoryOfTheMonth/@item.CategoryOfTheMonthId" class="btn btn-success">Update</a>
+								</td>
+								<td>
+									<a href="/CategoryOfTheMonth/DeleteCategoryOfTheMonth/@item.CategoryOfTheMonthId" class="btn btn-danger">Delete</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	}
+	<div class="row">
+		<div class="col-3 m-3">
+			<a asp-controller="CategoryOfTheMonth" asp-action="CreateCategoryOfTheMonth" class="btn btn-warning">Create New Category Of The Month</a>
+		</div>
+	</div>
+	
+</div>

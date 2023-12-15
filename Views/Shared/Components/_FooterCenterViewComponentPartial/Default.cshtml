@@ -1,0 +1,18 @@
+﻿@model List<ZayShop_Dapper_Ui.Dtos.FooterCenterDtos.ResultFooterCenterDto>
+
+@{
+	Layout = null;
+}
+
+<div class="col-md-4 pt-5">
+	<h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+	<ul class="list-unstyled text-light footer-link-list">
+
+		@foreach (var item in Model)
+		{
+			<li>
+				<a class="text-decoration-none" asp-controller="@item.FooterCenterLinkController" asp-action="@item.FooterCenterLinkAction">@item.FooterCenterText</a>
+			</li>
+		}		
+	</ul>
+</div>

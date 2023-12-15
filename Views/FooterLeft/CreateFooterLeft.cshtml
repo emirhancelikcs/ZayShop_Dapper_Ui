@@ -1,0 +1,22 @@
+﻿@model CreateFooterLeftDto
+
+@{
+	ViewData["Title"] = "Create FooterLeft";
+	Layout = "_AdminLayout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+	<label>Footer Icon</label>
+	<input type="text" asp-for="FooterLeftIcon" class="form-control" placeholder="fas fa-search">
+	<br>
+	<label>Footer Text</label>
+	<input type="text" asp-for="FooterLeftText" class="form-control">
+	<br>
+	<label>Footer Url</label>
+	<input type="text" asp-for="FooterLeftLinkUrl" class="form-control">
+	<br>
+	<button class="btn btn-primary">Save the FooterLeft</button>
+</form>
+

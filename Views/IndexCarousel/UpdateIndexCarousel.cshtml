@@ -1,0 +1,23 @@
+﻿@model UpdateIndexCarouselDto
+
+@{
+	Layout = "_AdminLayout";
+	ViewData["Title"] = "Update IndexCarousel";
+}
+
+<form method="post">
+	<input type="text" hidden asp-for="IndexCarouselId">
+	<label>IndexCarousel Header</label>
+	<input type="text" class="form-control" asp-for="Header">
+	<br>
+	<label>IndexCarousel Title</label>
+	<input type="text" class="form-control" asp-for="Title">
+	<br>
+	<label>IndexCarousel Description</label>
+	<input type="text" class="form-control" asp-for="Description">
+	<br>
+	<label>IndexCarousel ImageName</label>
+	<input type="text" class="form-control" asp-for="ImageName">
+	<br>
+	<button class="btn btn-primary" type="submit">Update IndexCarousel</button>
+</form>

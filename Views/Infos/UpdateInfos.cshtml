@@ -1,0 +1,30 @@
+﻿@model UpdateInfosDto
+
+@{
+	Layout = "_AdminLayout";
+	ViewData["Title"] = "Update Infos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+	<label>Info Email</label>
+	<input type="text" asp-for="InfosEmail" class="form-control">
+	<br>
+	<label>Info Phone</label>
+	<input type="text" asp-for="InfosPhone" class="form-control">
+	<br>
+	<label>Info Facebook</label>
+	<input type="text" asp-for="InfosFacebookAddress" class="form-control">
+	<br>
+	<label>Info Instagram</label>
+	<input type="text" asp-for="InfosInstagramAddress" class="form-control">
+	<br>
+	<label>Info Twitter</label>
+	<input type="text" asp-for="InfosTwitterAddress" class="form-control">
+	<br>
+	<label>Info Linkedin</label>
+	<input type="text" asp-for="InfosLinkedinAddress" class="form-control">
+	<br>
+	<button class="btn btn-primary">Update Infos</button>
+</form>

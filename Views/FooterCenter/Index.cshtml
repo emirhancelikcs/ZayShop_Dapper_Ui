@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ResultFooterCenterDto>
+
+@{
+	Layout = "_AdminLayout";
+	ViewData["Title"] = "FooterCenter";
+}
+
+<h1 class="h3 mb-2 text-gray-800">Footer Center</h1>
+<p class="mb-4">Shows Footer Center Table</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+	@* <div class="card-header py-3">
+	<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+	</div> *@
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Text</th>
+						<th>Controller</th>
+						<th>Action</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>#</th>
+						<th>Text</th>
+						<th>Controller</th>
+						<th>Action</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>@item.FooterCenterId</td>
+							<td>@item.FooterCenterText</td>
+							<td>@item.FooterCenterLinkController</td>
+							<td>@item.FooterCenterLinkAction</td>
+							<td>
+								<a href="/FooterCenter/UpdateFooterCenter/@item.FooterCenterId" class="btn btn-success">Update</a>
+							</td>
+							<td>
+								<a href="/FooterCenter/DeleteFooterCenter/@item.FooterCenterId" class="btn btn-danger">Delete</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+
+			</table>
+			<a asp-controller="FooterCenter" asp-action="CreateFooterCenter" class="btn btn-warning">Create New Footer Center</a>
+		</div>
+	</div>
+</div>

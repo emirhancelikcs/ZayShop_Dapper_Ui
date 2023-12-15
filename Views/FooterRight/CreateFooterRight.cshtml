@@ -1,0 +1,21 @@
+﻿@model CreateFooterRightDto
+
+@{
+	Layout = "_AdminLayout";
+	ViewData["Title"] = "Create FooterRight";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+	<label>Footer Text</label>
+	<input type="text" asp-for="FooterRightText" class="form-control">
+	<br>
+	<label>Footer Controller</label>
+	<input type="text" asp-for="FooterRightLinkController" class="form-control">
+	<br>
+	<label>Footer Action</label>
+	<input type="text" asp-for="FooterRightLinkAction" class="form-control">
+	<br>
+	<button class="btn btn-primary">Save the FooterRight</button>
+</form>

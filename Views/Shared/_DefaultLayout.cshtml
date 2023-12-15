@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeaderViewComponentPartial")
+
+<body>
+	@await Component.InvokeAsync("_NavbarViewComponentPartial")
+	<!-- Modal -->
+	@await Component.InvokeAsync("_SearchViewComponentPartial")
+
+	@RenderSection("Scripts", false)
+
+	@RenderBody()
+
+	@await Component.InvokeAsync("_FooterViewComponentPartial")
+	<!-- End Footer -->
+	<!-- Start Script -->
+	<script src="~/assets/zayshop/assets/js/jquery-1.11.0.min.js"></script>
+	<script src="~/assets/zayshop/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="~/assets/zayshop/assets/js/bootstrap.bundle.min.js"></script>
+	<script src="~/assets/zayshop/assets/js/templatemo.js"></script>
+	<script src="~/assets/zayshop/assets/js/custom.js"></script>
+	<!-- End Script -->
+</body>
+@await RenderSectionAsync("Scripts", required: false)
+
+</html>

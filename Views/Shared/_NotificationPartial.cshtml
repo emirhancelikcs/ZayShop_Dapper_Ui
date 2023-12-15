@@ -1,0 +1,32 @@
+﻿@{
+	Layout = null;
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+@if (TempData["Success"] != null)
+{
+	<script type="text/javascript">
+		toastr["success"]('@TempData["Success"]', "Success!");
+	</script>
+}
+else if (TempData["Info"] != null)
+{
+	<script type="text/javascript">
+		toastr["error"]('@TempData["Info"]', "Info!");
+	</script>
+}
+else if (TempData["Warning"] != null)
+{
+	<script type="text/javascript">
+		toastr["error"]('@TempData["Warning"]', "Warning!");
+	</script>
+}
+else if (TempData["Error"] != null)
+{
+	<script type="text/javascript">
+		toastr["error"]('@TempData["Error"]', "Error!");
+	</script>
+}

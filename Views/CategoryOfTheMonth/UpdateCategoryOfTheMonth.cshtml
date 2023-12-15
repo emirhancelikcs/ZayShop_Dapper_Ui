@@ -1,0 +1,19 @@
+﻿@model UpdateCategoryOfTheMonthDto
+
+@{
+	ViewData["Title"] = "Update Category Of The Month";
+	Layout = "_AdminLayout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+	<input type="hidden" asp-for="CategoryOfTheMonthId">
+	<label>Category Of The Month Header</label>
+	<input type="text" asp-for="CategoryOfTheMonthHeader" class="form-control">
+	<br>
+	<label>Category Of The Month Title</label>
+	<input type="text" asp-for="CategoryOfTheMonthTitle" class="form-control">
+	<br>
+	<button class="btn btn-primary">Update Category Of The Month</button>
+</form>

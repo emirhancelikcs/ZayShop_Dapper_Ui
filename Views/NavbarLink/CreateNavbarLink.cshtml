@@ -1,0 +1,21 @@
+﻿@model CreateNavbarLinkDto
+
+@{
+	ViewData["Title"] = "Create NavbarLink";
+	Layout = "_AdminLayout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+	<label>NavbarLink Text</label>
+	<input type="text" asp-for="NavbarLinkText" class="form-control">
+	<br>
+	<label>NavbarLink Controller</label>
+	<input type="text" asp-for="NavbarLinkController" class="form-control">
+	<br>
+	<label>NavbarLink Action</label>
+	<input type="text" asp-for="NavbarLinkAction" class="form-control">
+	<br>
+	<button class="btn btn-primary">Save the NavbarLink</button>
+</form>

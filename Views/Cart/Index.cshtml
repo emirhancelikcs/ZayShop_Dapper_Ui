@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Globalization
+@model List<ResultCartDto>
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+	Layout = "_DefaultLayout";
+	ViewData["Title"] = "Cart";
+}
+
+<div class="container mt-2">
+	<h1>@ViewData["Title"]</h1>
+</div>
+
+<hr>
+
+<div class="container mb-3">
+	@if (Model.Count <= 0)
+	{
+		<p>There is no item in cart. <a href="/Shop">Go Shop</a></p>
+	}
+
+	@foreach (var product in Model)
+	{
+		<div class="row mb-2 p-2" style="border: 1px solid silver; border-radius: 5px;">
+			<div class="col-2 p-0">
+				<a href="/Shop/Details/@product.ProductId">
+					<img src="~/img/@product.ProductImageUrl" alt="" width="200" style="border-right: 1px solid silver;">
+				</a>
+			</div>
+			<div class="col p-0">
+				<a href="/Shop/Details/@product.ProductId" class="text-decoration-none text-dark">
+					<h3>@product.ProductName</h3>
+				</a>
+				<p>@product.ProductPrice.ToString("C3", CultureInfo.CurrentCulture)</p>
+			</div>
+			<div class="col-1 d-flex align-items-center">
+				<a href="/Cart/Delete/@product.ProductId" class="btn btn-outline-danger" title="Delete" alt="Delete">
+					<i class="fas fa-trash"></i>
+				</a>
+			</div>
+		</div>
+	}
+</div>

@@ -1,0 +1,61 @@
+﻿@model List<ResultFooterLeftDto>
+
+@{
+	ViewData["Title"] = "FooterLeft";
+	Layout = "_AdminLayout";
+}
+
+<h1 class="h3 mb-2 text-gray-800">Footer Left</h1>
+<p class="mb-4">Shows Footer Left Table</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+	@* <div class="card-header py-3">
+	<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+	</div> *@
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Icon</th>
+						<th>Text</th>
+						<th>Url</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>#</th>
+						<th>Icon</th>
+						<th>Text</th>
+						<th>Url</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>@item.FooterLeftId</td>
+							<td>@item.FooterLeftIcon</td>
+							<td>@item.FooterLeftText</td>
+							<td>@item.FooterLeftLinkUrl</td>
+							<td>
+								<a href="/FooterLeft/UpdateFooterLeft/@item.FooterLeftId" class="btn btn-success">Update</a>
+							</td>
+							<td>
+								<a href="/FooterLeft/DeleteFooterLeft/@item.FooterLeftId" class="btn btn-danger">Delete</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+
+			</table>
+			<a asp-controller="FooterLeft" asp-action="CreateFooterLeft" class="btn btn-warning">Create New Footer Left</a>
+		</div>
+	</div>
+</div>

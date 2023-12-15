@@ -1,0 +1,66 @@
+﻿@model List<ResultProductWithCategoryDto>
+
+@{
+	ViewData["Title"] = "Products";
+	Layout = "_AdminLayout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Product</h1>
+<p class="mb-4">Shows Product Table</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+	@* <div class="card-header py-3">
+	<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+	</div> *@
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Product Name</th>
+						<th>Product Price</th>
+						<th>Category Name</th>
+						<th>Image Name</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>#</th>
+						<th>Category Name</th>
+						<th>Category Status</th>
+						<th>Image Status</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>@item.ProductId</td>
+							<td>@item.ProductName</td>
+							<td>@item.ProductPrice</td>
+							<td>@item.CategoryName</td>
+							<td>@item.ProductImageUrl</td>
+							<td>
+								<a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-success">Update</a>
+							</td>
+							<td>
+								<a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Delete</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+
+			</table>
+			<a asp-controller="Product" asp-action="CreateProduct" class="btn btn-warning">Create New Product</a>
+		</div>
+	</div>
+</div>

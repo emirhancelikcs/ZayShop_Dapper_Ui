@@ -1,0 +1,68 @@
+﻿@using System.Globalization
+@model List<ResultProductDto>
+
+@{
+	int total = 0;
+	Layout = null;
+}
+
+<!-- Start Featured Product -->
+<section class="bg-light">
+	<div class="container py-5">
+		<div class="row text-center py-3">
+			<div class="col-lg-6 m-auto">
+				<h1 class="h1">Öne Çıkan Ürünler</h1>
+				<p>
+					Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+					Excepteur sint occaecat cupidatat non proident.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			@foreach (var product in Model)
+			{
+				total++;
+
+				<div class="col-12 col-md-4 mb-4">
+					<div class="card h-100">
+						<a href="shop-single.html">
+							<img src="~/img/@product.ProductImageUrl" class="card-img-top" alt="...">
+						</a>
+						<div class="card-body">
+							<ul class="list-unstyled d-flex justify-content-between">
+								<li>
+									@{
+										int totalStars = Convert.ToInt32(product.ProductRating);
+										int nonStars = 5 - totalStars;
+
+										for (var i = 1; i <= totalStars; i++)
+										{
+											<i class="text-warning fa fa-star"></i>
+										}
+
+										for (var j = 1; j <= nonStars; j++)
+										{
+											<i class="text-muted fa fa-star"></i>
+										}
+									}
+								</li>
+								<li class="text-muted text-right">@product.ProductPrice.ToString("C3", CultureInfo.CurrentCulture)</li>
+							</ul>
+							<a href="shop-single.html" class="h2 text-decoration-none text-dark">@product.ProductName</a>
+							<p class="card-text">
+								@product.ProductDescription
+							</p>
+							<p class="text-muted">Reviews (24)</p>
+						</div>
+					</div>
+				</div>
+
+				@if (total >= 3)
+				{
+					break;					
+				}
+			}
+		</div>
+	</div>
+</section>
+<!-- End Featured Product -->

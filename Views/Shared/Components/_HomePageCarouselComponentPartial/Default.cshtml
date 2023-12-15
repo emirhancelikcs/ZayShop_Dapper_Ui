@@ -1,0 +1,67 @@
+﻿@model List<ZayShop_Dapper_Ui.Dtos.IndexCarouselDtos.ResultIndexCarouselDto>
+
+@{
+	string isActive = "";
+	int activeCount = 0;
+
+	Layout = null;
+}
+
+<!-- Start Banner Hero -->
+<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+	<ol class="carousel-indicators">
+		@for (var i = 0; i < Model.Count; i++)
+		{
+			if (i == 0)
+			{
+				<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="@i" class="active"></li>
+			}
+			else
+			{
+				<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="@i"></li>
+			}
+		}
+	</ol>
+	<div class="carousel-inner">
+
+		@foreach (var carouselItem in Model)
+		{
+			activeCount++;
+			string imageName = "";
+
+			if (activeCount == 1)
+				isActive = "active";
+			else
+				isActive = "";
+
+			if (String.IsNullOrEmpty(carouselItem.ImageName))
+				imageName = "banner_img_01.jpg";
+			else
+				imageName = carouselItem.ImageName;
+
+			<div class="carousel-item @isActive">
+				<div class="container">
+					<div class="row p-5">
+						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+							<img class="img-fluid" src="~/img/@imageName" alt="">
+						</div>
+						<div class="col-lg-6 mb-0 d-flex align-items-center">
+							<div class="text-align-left align-self-center">
+								<h1 class="h1">@carouselItem.Header</h1>
+								<h3 class="h2">@carouselItem.Title</h3>
+								<p>@carouselItem.Description</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+	<a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+		<i class="fas fa-chevron-left"></i>
+	</a>
+	<a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+		<i class="fas fa-chevron-right"></i>
+	</a>
+</div>
+<!-- End Banner Hero -->

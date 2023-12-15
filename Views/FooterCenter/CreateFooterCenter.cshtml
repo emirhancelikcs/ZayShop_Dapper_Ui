@@ -1,0 +1,21 @@
+﻿@model CreateFooterCenterDto
+
+@{
+	Layout = "_AdminLayout";
+	ViewData["Title"] = "Create FooterCenter";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+	<label>Footer Text</label>
+	<input type="text" asp-for="FooterCenterText" class="form-control">
+	<br>
+	<label>Footer Controller</label>
+	<input type="text" asp-for="FooterCenterLinkController" class="form-control">
+	<br>
+	<label>Footer Action</label>
+	<input type="text" asp-for="FooterCenterLinkAction" class="form-control">
+	<br>
+	<button class="btn btn-primary">Save the FooterCenter</button>
+</form>

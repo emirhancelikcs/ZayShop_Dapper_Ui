@@ -1,0 +1,74 @@
+﻿@model List<ResultIndexCarouselDto>
+
+@{
+	ViewData["Title"] = "IndexCarousel";
+	Layout = "_AdminLayout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">IndexCarousel</h1>
+<p class="mb-4">Shows IndexCarousel Table</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+	@* <div class="card-header py-3">
+	<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+	</div> *@
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Header</th>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Image Name</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>#</th>
+						<th>Header</th>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Image Name</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						string imageName = "";
+
+						if (String.IsNullOrEmpty(item.ImageName))
+							imageName = "No Image Found!";
+						else
+							imageName = item.ImageName;
+
+						<tr>
+							<td>@item.IndexCarouselId</td>
+							<td>@item.Header</td>
+							<td>@item.Title</td>
+							<td>@item.Description</td>
+							<td>@imageName</td>
+							<td>
+								<a href="/IndexCarousel/UpdateIndexCarousel/@item.IndexCarouselId" class="btn btn-success">Update</a>
+							</td>
+							<td>
+								<a href="/IndexCarousel/DeleteIndexCarousel/@item.IndexCarouselId" class="btn btn-danger">Delete</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+
+			</table>
+			<a asp-controller="IndexCarousel" asp-action="CreateIndexCarousel" class="btn btn-warning">Create New IndexCarousel</a>
+		</div>
+	</div>
+</div>

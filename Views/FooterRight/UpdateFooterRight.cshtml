@@ -1,0 +1,22 @@
+﻿@model UpdateFooterRightDto
+
+@{
+	ViewData["Title"] = "Update FooterRight";
+	Layout = "_AdminLayout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+	<input type="hidden" asp-for="FooterRightId">
+	<label>FooterRight Text</label>
+	<input type="text" asp-for="FooterRightText" class="form-control">
+	<br>
+	<label>FooterRight Controller</label>
+	<input type="text" asp-for="FooterRightLinkController" class="form-control">
+	<br>
+	<label>FooterRight Action</label>
+	<input type="text" asp-for="FooterRightLinkAction" class="form-control">
+	<br>
+	<button class="btn btn-primary">Update FooterRight</button>
+</form>
